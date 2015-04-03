@@ -44,6 +44,8 @@
           <core-item label="Option 2"></core-item>
         </core-menu>
 
+        <paper-button on-click="{{logout}}" visible="{{authenticated}}">Log Out</paper-button>
+
       </core-header-panel>
 
       <!-- Main: This is the main content of the application -->
@@ -63,20 +65,39 @@
             <section>
               <div>
                 <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                <paper-button raised class="colored" on-click="{{sampleBtnClick}}">Sample Button 1</paper-button>
-                <paper-button raised class="colored">Sample Button 2</paper-button>
+                <paper-button raised class="colored" on-click="{{sampleBtnClick}}" disabled="{{!authenticated}}">Sample Button 1</paper-button>
+                <paper-button raised class="colored" on-click="{{sampleBtnClick2}}" disabled="{{!authenticated}}">Sample Button 2</paper-button>
               </div>
             </section>
 
             <!-- Since this is the second section, it corresponds to the second menu option "Option 2" above -->
             <section>
               <div>
-                <paper-button raised class="colored">Sample Button 3</paper-button>
-                <paper-button raised class="colored">Sample Button 4</paper-button>
+                <paper-button raised class="colored" on-click="{{sampleBtnClick3}}" disabled="{{!authenticated}}">Sample Button 3</paper-button>
+                <paper-button raised class="colored" on-click="{{sampleBtnClick4}}" disabled="{{!authenticated}}">Sample Button 4</paper-button>
               </div>
             </section>
 
           </core-animated-pages>
+
+          <!-- Login Form -->
+          <core-overlay id="loginDialog" backdrop autoCloseDisabled layered="false" layout vertical>
+            <paper-shadow z="3" fit></paper-shadow>
+            <h2>Login</h2>
+            <div relative flex auto>
+              <paper-input-decorator label="Email" floatingLabel autoValidate>
+                <input id="email" is="core-input" value="{{email}}" required/>
+              </paper-input-decorator>
+              <paper-input-decorator label="Password" floatingLabel  autoValidate>
+                <input id="password" is="core-input" type="password" value="{{password}}" required/>
+              </paper-input-decorator>
+            </div>
+            <div layout horizontal>
+              <div flex></div>
+              <paper-button autofocus on-click="{{submitLogin}}">Submit</paper-button>
+            </div>
+          </core-overlay>
+
         </div>
       </core-header-panel>
     </core-drawer-panel>

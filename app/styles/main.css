@@ -29,3 +29,27 @@ core-toolbar {
   color: #d9d9d9;
   background-color: #4b2e83;
 }
+
+#loginDialog {
+  background: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 32px;
+  overflow: visible !important;
+  padding: 24px;
+  width: 400px;
+  min-width: 25%;
+}
+
+#loginDialog h2 {
+  margin-bottom: 0;
+}
+
+#loginDialog div paper-button {
+  margin-top: 16px;
+}
+
+#scroller {
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 24px 24px 0 24px;
+}
