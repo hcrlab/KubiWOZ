@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>poly foo</title>
+  <title>Kubi Wizard of Oz</title>
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- build:css styles/main.css -->
@@ -14,6 +14,10 @@
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js bower_components/firebase/firebase.min.js -->
+  <script src="bower_components/firebase/firebase.js"></script>
   <!-- endbuild -->
 
   <!-- will be replaced with elements/elements.vulcanized.html -->
@@ -26,35 +30,53 @@
 
     <core-drawer-panel>
 
-      <!-- Drawer -->
+      <!-- Drawer: This is the menu on the left side of the screen -->
       <core-header-panel drawer>
 
         <!-- Drawer Toolbar -->
         <core-toolbar>Menu</core-toolbar>
 
         <!-- Drawer Content -->
-        <core-menu selected="0">
-          <core-item label="Yo"></core-item>
-          <core-item label="Polymer"></core-item>
-          <core-item label="App"></core-item>
+        <core-menu selected="{{menuOption}}">
+          <!-- Put the menu items here for however you want to subdivide the interface -->
+          <!-- Note that clicking a menu option will transition between the sections of buttons below -->
+          <core-item label="General"></core-item>
+          <core-item label="Option 2"></core-item>
         </core-menu>
 
       </core-header-panel>
 
-      <!-- Main -->
+      <!-- Main: This is the main content of the application -->
       <core-header-panel main>
 
-        <!-- Main Toolbar -->
+        <!-- Main Toolbar: This is the part at the top of the screen above the main content -->
         <core-toolbar>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <span>{{appName}}</span>
         </core-toolbar>
 
         <!-- Main Content -->
-        <div class="hero-unit">
-          <yo-greeting></yo-greeting>
-          <p>You now have</p>
-          <yo-list></yo-list>
+        <div id="main">
+          <core-animated-pages transitions="cross-fade-all" selected="{{menuOption}}">
+
+            <!-- Since this is the first section, it corresponds to the first menu option "General" above -->
+            <section>
+              <div>
+                <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
+                <paper-button raised class="colored" on-click="{{sampleBtnClick}}">Sample Button 1</paper-button>
+                <paper-button raised class="colored">Sample Button 2</paper-button>
+              </div>
+            </section>
+
+            <!-- Since this is the second section, it corresponds to the second menu option "Option 2" above -->
+            <section>
+              <div>
+                <paper-button raised class="colored">Sample Button 3</paper-button>
+                <paper-button raised class="colored">Sample Button 4</paper-button>
+              </div>
+            </section>
+
+          </core-animated-pages>
         </div>
       </core-header-panel>
     </core-drawer-panel>

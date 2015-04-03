@@ -4,28 +4,21 @@ body {
   color: #333;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
+section {
+  padding: 20px 0;
 }
 
-.hero-unit h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
+#main {
+  padding: 24px;
 }
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+paper-button.colored {
+  color: #4b2e83;
+}
+
+paper-button[raised].colored {
+  background: #4b2e83;
+  color: #d9d9d9;
 }
 
 [drawer] {
@@ -33,6 +26,6 @@ body {
 }
 
 core-toolbar {
-  color: #FAFAFA;
-  background-color: #009688;
+  color: #d9d9d9;
+  background-color: #4b2e83;
 }
