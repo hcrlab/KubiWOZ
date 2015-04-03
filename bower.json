@@ -1,5 +1,5 @@
 {
-  "name": "kubiwoz",
+  "name": "kubiwozb",
   "version": "0.0.0",
   "dependencies": {
     "core-elements": "Polymer/core-elements#^0.5.1",
