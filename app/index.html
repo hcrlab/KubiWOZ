@@ -2,111 +2,173 @@
 <html lang="">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kubi Wizard of Oz</title>
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kubi Wizard of Oz</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild-->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
 
-  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
-  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-  <!-- endbuild -->
+    <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <!-- endbuild -->
 
-  <!-- build:js bower_components/firebase/firebase.min.js -->
-  <script src="bower_components/firebase/firebase.js"></script>
-  <!-- endbuild -->
+    <!-- build:js bower_components/firebase/firebase.min.js -->
+    <script src="bower_components/firebase/firebase.js"></script>
+    <!-- endbuild -->
 
-  <!-- will be replaced with elements/elements.vulcanized.html -->
-  <link rel="import" href="elements/elements.html">
-  <!-- endreplace-->
+    <!-- will be replaced with elements/elements.vulcanized.html -->
+    <link rel="import" href="elements/elements.html">
+    <!-- endreplace-->
 </head>
 
 <body unresolved fullbleed layout vertical>
-  <template is="auto-binding" id="app">
+<template is="auto-binding" id="app">
+
+    <paper-action-dialog id="ConfirmClearDialog" backdrop autoCloseDisabled heading="CAUTION!">
+        <p><b>This action CANNOT be reversed! This will remove ALL DATA from Firebase.</b></p>
+        <p>Are you sure you wish to continue?</p>
+        <paper-button affirmative autofocus>Cancel</paper-button>
+        <paper-button affirmative on-click="{{clearFb}}">Continue</paper-button>
+    </paper-action-dialog>
+
+    <paper-action-dialog id="ClearedDialog" backdrop heading="Firebase Cleared">
+        <p>All data removed!</p>
+        <paper-button affirmative autofocus>Ok</paper-button>
+    </paper-action-dialog>
+
+    <!-- Login Form -->
+    <core-overlay id="loginDialog" backdrop autoCloseDisabled layered="false" layout vertical>
+        <paper-shadow z="3" fit></paper-shadow>
+        <h2>Login</h2>
+
+        <div relative flex auto>
+            <paper-input-decorator label="Email" floatingLabel autoValidate>
+                <input id="email" is="core-input" value="{{email}}" required/>
+            </paper-input-decorator>
+            <paper-input-decorator label="Password" floatingLabel autoValidate>
+                <input id="password" is="core-input" type="password" value="{{password}}" required/>
+            </paper-input-decorator>
+        </div>
+        <div layout horizontal>
+            <div flex></div>
+            <paper-button autofocus on-click="{{submitLogin}}">Submit</paper-button>
+        </div>
+    </core-overlay>
 
     <core-drawer-panel>
 
-      <!-- Drawer: This is the menu on the left side of the screen -->
-      <core-header-panel drawer>
+        <!-- Drawer: This is the menu on the left side of the screen -->
+        <core-header-panel drawer>
 
-        <!-- Drawer Toolbar -->
-        <core-toolbar>Menu</core-toolbar>
+            <!-- Drawer Toolbar -->
+            <core-toolbar>Menu</core-toolbar>
 
-        <!-- Drawer Content -->
-        <core-menu selected="{{menuOption}}">
-          <!-- Put the menu items here for however you want to subdivide the interface -->
-          <!-- Note that clicking a menu option will transition between the sections of buttons below -->
-          <core-item label="General"></core-item>
-          <core-item label="Option 2"></core-item>
-        </core-menu>
+            <!-- Drawer Content -->
+            <div layout vertical fit>
 
-        <paper-button on-click="{{logout}}" visible="{{authenticated}}">Log Out</paper-button>
+                <core-menu selected="{{menuOption}}">
+                    <!-- Put the menu items here for however you want to subdivide the interface -->
+                    <!-- Note that clicking a menu option will transition between the sections of buttons below -->
+                    <core-item label="Responses"></core-item>
+                    <core-item label="Questions"></core-item>
+                    <core-item label="Lessons"></core-item>
+                    <core-item label="Quizzes"></core-item>
+                    <core-item label="App Actions"></core-item>
+                </core-menu>
 
-      </core-header-panel>
+                <div layout horizontal>
+                    <paper-button on-click="{{logout}}" visible="{{authenticated}}">Log Out</paper-button>
+                    <div flex></div>
+                </div>
 
-      <!-- Main: This is the main content of the application -->
-      <core-header-panel main>
+                <div flex></div>
 
-        <!-- Main Toolbar: This is the part at the top of the screen above the main content -->
-        <core-toolbar>
-          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <span>{{appName}}</span>
-        </core-toolbar>
+                <div layout horizontal>
+                    <paper-button on-click="{{confirmClearRequest}}" visible="{{authenticated}}">Clear Firebase</paper-button>
+                    <div flex></div>
+                </div>
 
-        <!-- Main Content -->
-        <div id="main">
-          <core-animated-pages transitions="cross-fade-all" selected="{{menuOption}}">
-
-            <!-- Since this is the first section, it corresponds to the first menu option "General" above -->
-            <section>
-              <div>
-                <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                <paper-button raised class="colored" on-click="{{sampleBtnClick}}" disabled="{{!authenticated}}">Sample Button 1</paper-button>
-                <paper-button raised class="colored" on-click="{{sampleBtnClick2}}" disabled="{{!authenticated}}">Sample Button 2</paper-button>
-              </div>
-            </section>
-
-            <!-- Since this is the second section, it corresponds to the second menu option "Option 2" above -->
-            <section>
-              <div>
-                <paper-button raised class="colored" on-click="{{sampleBtnClick3}}" disabled="{{!authenticated}}">Sample Button 3</paper-button>
-                <paper-button raised class="colored" on-click="{{sampleBtnClick4}}" disabled="{{!authenticated}}">Sample Button 4</paper-button>
-              </div>
-            </section>
-
-          </core-animated-pages>
-
-          <!-- Login Form -->
-          <core-overlay id="loginDialog" backdrop autoCloseDisabled layered="false" layout vertical>
-            <paper-shadow z="3" fit></paper-shadow>
-            <h2>Login</h2>
-            <div relative flex auto>
-              <paper-input-decorator label="Email" floatingLabel autoValidate>
-                <input id="email" is="core-input" value="{{email}}" required/>
-              </paper-input-decorator>
-              <paper-input-decorator label="Password" floatingLabel  autoValidate>
-                <input id="password" is="core-input" type="password" value="{{password}}" required/>
-              </paper-input-decorator>
             </div>
-            <div layout horizontal>
-              <div flex></div>
-              <paper-button autofocus on-click="{{submitLogin}}">Submit</paper-button>
-            </div>
-          </core-overlay>
 
-        </div>
-      </core-header-panel>
+        </core-header-panel>
+
+        <!-- Main: This is the main content of the application -->
+        <core-header-panel main>
+
+            <!-- Main Toolbar: This is the part at the top of the screen above the main content -->
+            <core-toolbar>
+                <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+                <span>{{appName}}</span>
+            </core-toolbar>
+
+            <!-- Main Content -->
+            <div id="main">
+                <core-animated-pages transitions="cross-fade-all" selected="{{menuOption}}">
+                    <!-- Responses -->
+                    <section>
+                        <div>
+                            <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
+                            <response-button expr="SMILE">Correct</response-button>
+                            <response-button expr="SMILE">Excellent</response-button>
+                            <response-button>Try Again</response-button>
+                        </div>
+                    </section>
+
+                    <!-- Questions -->
+                    <section>
+                        <div>
+                            <question-button>Hint</question-button>
+                            <question-button>Review</question-button>
+                            <question-button>Are you there?</question-button>
+                        </div>
+                    </section>
+
+                    <!-- Lessons -->
+                    <section>
+                        <div>
+                            <lesson-button>Ready</lesson-button><br/>
+                            <lesson-button>A Woman</lesson-button>
+                            <lesson-button>A Boy</lesson-button><br/>
+                            <lesson-button>The Girl</lesson-button>
+                            <lesson-button>The Woman</lesson-button>
+                            <lesson-button>The Boy</lesson-button><br/>
+                            <lesson-button>This is a girl</lesson-button>
+                            <lesson-button>This is a woman</lesson-button>
+                            <lesson-button>This is a boy</lesson-button>
+                        </div>
+                    </section>
+
+                    <!-- Quizzes -->
+                    <section>
+                        <div>
+                            <quiz-button>Let's practice</quiz-button><br/>
+                            <quiz-button>Show me a girl</quiz-button>
+                            <quiz-button>Show me a boy</quiz-button>
+                            <quiz-button>Show me a woman</quiz-button>
+                        </div>
+                    </section>
+
+                    <!-- App Actions -->
+                    <section>
+                        <div>
+                            <app-button>Main Activity</app-button>
+                        </div>
+                    </section>
+                </core-animated-pages>
+
+            </div>
+        </core-header-panel>
     </core-drawer-panel>
 
-  </template>
+</template>
 
-  <!-- build:js scripts/app.js -->
-  <script src="scripts/app.js"></script>
-  <!-- endbuild-->
+<!-- build:js scripts/app.js -->
+<script src="scripts/app.js"></script>
+<!-- endbuild-->
 </body>
 
 </html>

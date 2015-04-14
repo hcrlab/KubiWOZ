@@ -1,0 +1,19 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="quiz-button" attributes="">
+  <template>
+    <link rel="stylesheet" href="../fb-button.css">
+
+    <paper-button raised class="colored" on-click="{{quiz}}"><content></content></paper-button>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        quiz: function() {
+          console.log("Quiz");
+        }
+      });
+    })();
+  </script>
+</polymer-element>

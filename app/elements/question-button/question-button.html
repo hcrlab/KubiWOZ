@@ -1,0 +1,33 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="question-button" attributes="">
+  <template>
+    <link rel="stylesheet" href="../fb-button.css">
+
+    <paper-button raised class="colored" on-click="{{question}}"><content></content></paper-button>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        question: function() {
+          console.log("Question");
+
+          fb.push().set({
+            tasks: [
+              {
+                speech: {
+                  text: this.$.text.getDistributedNodes()[0].data,
+                  language: this.lan
+                },
+                expr: this.expr,
+                action: this.action,
+                buttons: ["Yes", "No"]
+              }
+            ]
+          });
+        }
+      });
+    })();
+  </script>
+</polymer-element>

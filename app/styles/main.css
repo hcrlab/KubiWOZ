@@ -53,3 +53,7 @@ core-toolbar {
   box-sizing: border-box;
   padding: 24px 24px 0 24px;
 }
+
+.left {
+  text-align: left;
+}
