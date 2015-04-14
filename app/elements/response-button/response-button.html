@@ -5,13 +5,14 @@
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
-    <paper-button raised class="colored" on-click="{{response}}"><content></content></paper-button>
+    <paper-button raised class="colored" on-click="{{response}}"><content id="content"></content></paper-button>
   </template>
   <script>
     (function () {
       var fb = new Firebase("https://hcrkubi.firebaseio.com/response");
 
       Polymer({
+
         expr: null,
         action: null,
         text: null,
@@ -20,17 +21,19 @@
         response: function() {
           console.log("Response");
 
+          if(!this.text) {
+            this.text = this.$.content.getDistributedNodes()[0].data;
+          }
+
           fb.push().set({
-            tasks: [
-              {
-                speech: {
-                  text: this.text,
-                  language: this.lan
-                },
-                expr: this.expr,
-                action: this.action
-              }
-            ]
+            tasks: [{
+              speech: {
+                text: this.text,
+                language: this.lan
+              },
+              expr: this.expr,
+              action: this.action
+            }]
           });
         }
       });

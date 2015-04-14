@@ -1,17 +1,41 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="quiz-button" attributes="">
+<polymer-element name="quiz-button" attributes="text lan">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
-    <paper-button raised class="colored" on-click="{{quiz}}"><content></content></paper-button>
+    <paper-button raised class="colored" on-click="{{quiz}}"><content id="content"></content></paper-button>
   </template>
   <script>
     (function () {
+      var fb = new Firebase("https://hcrkubi.firebaseio.com/quiz");
+
       Polymer({
+
+        text: null,
+        lan: "FR",
+
         quiz: function() {
           console.log("Quiz");
+
+          if(!this.text) {
+            this.text = this.$.content.getDistributedNodes()[0].data;
+          }
+
+          fb.push().set({
+            tasks: [{
+              speech: {
+                text: "Show me a card that matches",
+                language: "EN"
+              }
+            }, {
+              speech: {
+                text: this.text,
+                language: this.lan
+              }
+            }]
+          });
         }
       });
     })();

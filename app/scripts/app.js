@@ -54,39 +54,11 @@
     // For initialization, lets check if they are already logged in, if not, disable the buttons
     app.authenticated = !!fb.getAuth();
 
-    // Use this ref for adding commands to the Firebase
-    var commands = fb.child("commands");
+    app.YesNo = ['Yes', 'No'];
+    app.Ok = ['Ok'];
 
-    // Use this ref for adding logging data to the Firebase
-    var log = fb.child("wozlog");
-
-    // These are examples of how to connect buttons to sending commands to the Firebase
-    app.sampleBtnClick = function() {
-        commands.push().set({
-            time: Firebase.ServerValue.TIMESTAMP,
-            command: "SAMPLE_COMMAND_1"
-        });
-    };
-
-    app.sampleBtnClick2 = function() {
-        commands.push().set({
-            time: Firebase.ServerValue.TIMESTAMP,
-            command: "SAMPLE_COMMAND_2"
-        });
-    };
-
-    app.sampleBtnClick3 = function() {
-        commands.push().set({
-            time: Firebase.ServerValue.TIMESTAMP,
-            command: "SAMPLE_COMMAND_3"
-        });
-    };
-
-    app.sampleBtnClick4 = function() {
-        commands.push().set({
-            time: Firebase.ServerValue.TIMESTAMP,
-            command: "SAMPLE_COMMAND_4"
-        });
+    app.expr = {
+        smile: 'SMILE'
     };
 
     // Listen for template bound event to know when bindings

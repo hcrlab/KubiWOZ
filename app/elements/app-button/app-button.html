@@ -5,13 +5,26 @@
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
-    <paper-button raised class="colored" on-click="{{appAction}}"><content></content></paper-button>
+    <paper-button raised class="colored" on-click="{{appAction}}"><content id="content"></content></paper-button>
   </template>
   <script>
     (function () {
+      var fb = new Firebase("https://hcrkubi.firebaseio.com/appAction");
+
       Polymer({
+
+        dest: 'MainActivity',
+        before: null,
+        after: null,
+
         appAction: function() {
           console.log("App Action");
+
+          fb.push().set({
+            destination: this.dest,
+            before: this.before,
+            after: this.after
+          });
         }
       });
     })();

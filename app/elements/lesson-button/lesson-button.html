@@ -1,17 +1,42 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="lesson-button" attributes="">
+<polymer-element name="lesson-button" attributes="text lan expr action img">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
-    <paper-button raised class="colored" on-click="{{lesson}}"><content></content></paper-button>
+    <paper-button raised class="colored" on-click="{{lesson}}"><content id="content"></content></paper-button>
   </template>
   <script>
     (function () {
+      var fb = new Firebase("https://hcrkubi.firebaseio.com/lessons");
+
       Polymer({
+
+        text: null,
+        lan: "FR",
+        expr: null,
+        action: null,
+        img: null,
+
         lesson: function() {
           console.log("Lesson");
+
+          if(!this.text) {
+            this.text = this.$.content.getDistributedNodes()[0].data;
+          }
+
+          fb.push().set({
+            tasks: [{
+              speech: {
+                text: this.text,
+                language: this.lan
+              },
+              expr: this.expr,
+              action: this.action,
+              img: this.img
+            }]
+          });
         }
       });
     })();
