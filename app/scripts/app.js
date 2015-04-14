@@ -11,9 +11,9 @@
     app.password = null;
 
     // Connect to the firebase and setup the login function
-    var fb = new Firebase("https://hcrkubi.firebaseio.com/");
+    var fb = new Firebase('https://hcrkubi.firebaseio.com/');
     app.submitLogin = function() {
-        console.log("Logging in...");
+        console.log('Logging in...');
 
         fb.authWithPassword({
             email    : app.email,
@@ -21,11 +21,11 @@
         },
         function (error, authData) {
             if (error) {
-                console.log("Login Failed!", error);
+                console.log('Login Failed!', error);
             } else {
                 app.$.loginDialog.opened = false;
                 app.authenticated = true;
-                console.log("Authenticated successfully with payload:", authData);
+                console.log('Authenticated successfully with payload:', authData);
             }
         });
     };
@@ -37,7 +37,7 @@
     app.clearFb = function() {
         fb.remove(function(error) {
             if(error) {
-                console.log("Error deleting data fom Firebase!")
+                console.log('Error deleting data fom Firebase!');
             } else {
                 app.$.ClearedDialog.toggle();
             }
