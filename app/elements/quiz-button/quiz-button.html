@@ -9,15 +9,15 @@
   </template>
   <script>
     (function () {
-      var fb = new Firebase("https://hcrkubi.firebaseio.com/quiz");
+      var fb = new Firebase('https://hcrkubi.firebaseio.com/quiz');
 
       Polymer({
 
         text: null,
-        lan: "FR",
+        lan: 'FR',
 
         quiz: function() {
-          console.log("Quiz");
+          console.log('Quiz');
 
           if(!this.text) {
             this.text = this.$.content.getDistributedNodes()[0].data;
@@ -26,8 +26,8 @@
           fb.push().set({
             tasks: [{
               speech: {
-                text: "Show me a card that matches",
-                language: "EN"
+                text: 'Show me a card that matches',
+                language: 'EN'
               }
             }, {
               speech: {

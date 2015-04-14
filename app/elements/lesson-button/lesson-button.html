@@ -9,18 +9,18 @@
   </template>
   <script>
     (function () {
-      var fb = new Firebase("https://hcrkubi.firebaseio.com/lessons");
+      var fb = new Firebase('https://hcrkubi.firebaseio.com/lessons');
 
       Polymer({
 
         text: null,
-        lan: "FR",
+        lan: 'FR',
         expr: null,
         action: null,
         img: null,
 
         lesson: function() {
-          console.log("Lesson");
+          console.log('Lesson');
 
           if(!this.text) {
             this.text = this.$.content.getDistributedNodes()[0].data;
