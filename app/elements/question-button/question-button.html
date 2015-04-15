@@ -9,12 +9,12 @@
   </template>
   <script>
     (function () {
-      var fb = new Firebase("https://hcrkubi.firebaseio.com/question");
+      var fb = new Firebase('https://hcrkubi.firebaseio.com/question');
 
       Polymer({
 
         text: null,
-        lan: "EN",
+        lan: 'EN',
         expr: null,
         action: null,
 
@@ -23,7 +23,7 @@
         },
 
         question: function() {
-          console.log("Question");
+          console.log('Question');
 
           if(!this.text) {
             this.text = this.$.content.getDistributedNodes()[0].data;
