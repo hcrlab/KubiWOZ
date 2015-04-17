@@ -1,5 +1,6 @@
 paper-button {
   margin-bottom: 10px;
+  width: 200px;
 }
 
 paper-button.colored {
