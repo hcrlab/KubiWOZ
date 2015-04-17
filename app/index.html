@@ -112,8 +112,8 @@
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                            <response-button expr="SMILE">Correct</response-button>
-                            <response-button expr="SMILE">Excellent</response-button>
+                            <response-button action="SMILE">Correct</response-button>
+                            <response-button action="SMILE">Excellent</response-button>
                             <response-button>Try Again</response-button>
                         </div>
                     </section>
@@ -122,15 +122,15 @@
                     <section>
                         <div>
                             <question-button btns="{{YesNo}}">Hint</question-button>
-                            <question-button>Review</question-button>
-                            <question-button>Are you there?</question-button>
+                            <question-button btns="{{YesNo}}">Review</question-button>
+                            <question-button btns="{{Ok}}">Are you there?</question-button>
                         </div>
                     </section>
 
                     <!-- Lessons -->
                     <section>
                         <div>
-                            <lesson-button>Ready</lesson-button><br/>
+                            <response-button action="SMILE">Ready</response-button><br/>
                             <lesson-button>A Woman</lesson-button>
                             <lesson-button>A Boy</lesson-button><br/>
                             <lesson-button>The Girl</lesson-button>
@@ -145,7 +145,7 @@
                     <!-- Quizzes -->
                     <section>
                         <div>
-                            <quiz-button>Let's practice</quiz-button><br/>
+                            <response-button action="SMILE">Let's practice</response-button><br/>
                             <quiz-button text="une fille">Show me a girl</quiz-button>
                             <quiz-button text="un garcon">Show me a boy</quiz-button>
                             <quiz-button text="une femme">Show me a woman</quiz-button>

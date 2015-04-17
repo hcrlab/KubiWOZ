@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="question-button" attributes="text lan expr action btns">
+<polymer-element name="question-button" attributes="text lan btns">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -15,8 +15,6 @@
 
         text: null,
         lan: 'EN',
-        expr: null,
-        action: null,
 
         created: function() {
           this.btns = [];
@@ -35,8 +33,7 @@
                 text: this.text,
                 language: this.lan
               },
-              expr: this.expr,
-              action: this.action,
+              action: 'QUESTIONING',
               buttons: this.btns
             }],
             handled: false

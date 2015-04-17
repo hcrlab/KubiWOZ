@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="lesson-button" attributes="text lan expr action img">
+<polymer-element name="lesson-button" attributes="text lan img">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -9,14 +9,12 @@
   </template>
   <script>
     (function () {
-      var fb = new Firebase('https://hcrkubi.firebaseio.com/lessons');
+      var fb = new Firebase('https://hcrkubi.firebaseio.com/lesson');
 
       Polymer({
 
         text: null,
         lan: 'FR',
-        expr: null,
-        action: null,
         img: null,
 
         lesson: function() {
@@ -32,8 +30,6 @@
                 text: this.text,
                 language: this.lan
               },
-              expr: this.expr,
-              action: this.action,
               img: this.img
             }],
             handled: false
