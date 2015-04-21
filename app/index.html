@@ -76,7 +76,8 @@
                     <core-item label="Responses"></core-item>
                     <core-item label="Questions"></core-item>
                     <core-item label="Lessons"></core-item>
-                    <core-item label="App Actions"></core-item>
+                    <core-item label="App Navigation"></core-item>
+                    <core-item label="Test Actions"></core-item>
                 </core-menu>
 
                 <div layout horizontal>
@@ -112,7 +113,7 @@
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
                             <response-button action="SMILE">Correct</response-button>
-                            <response-button action="SMILE">Excellent</response-button>
+                            <response-button action="SURPRISED">Excellent</response-button>
                             <response-button>Try Again</response-button>
                         </div>
                     </section>
@@ -154,6 +155,32 @@
                     <section>
                         <div>
                             <app-button>Main Activity</app-button>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div>
+                            <response-button action="SMILE">Smile</response-button>
+                            <response-button action="WINK">Wink</response-button>
+                            <response-button action="BLINK">Blink</response-button>
+                        </div>
+                        <div>
+                            <response-button action="GIGGLE">Giggle</response-button>
+                            <response-button action="GLARE">Glare</response-button>
+                            <response-button action="SLEEP">Sleep</response-button>
+                        </div>
+                        <div>
+                            <response-button action="WAKE">Wake</response-button>
+                            <response-button action="SURPRISED">Surprised</response-button>
+                            <response-button action="THINK">Think</response-button>
+                        </div>
+                        <div>
+                            <response-button action="GUILTY">Guilty</response-button>
+                            <response-button action="LOOK_LEFT">Look Left</response-button>
+                            <response-button action="LOOK_RIGHT">Look Right</response-button>
+                        </div>
+                        <div>
+                            <response-button action="NBLINK">N Blink</response-button>
                         </div>
                     </section>
                 </core-animated-pages>
