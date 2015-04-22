@@ -5,17 +5,26 @@
   <template>
     <link rel='stylesheet' href='../fb-button.css'>
 
+    <app-globals id="globals"></app-globals>
+
     <paper-button raised class='colored' on-click='{{appAction}}'><content id='content'></content></paper-button>
   </template>
   <script>
     (function () {
-      var fb = new Firebase('https://hcrkubi.firebaseio.com/appAction');
+      var fb = null;
 
       Polymer({
 
         dest: 'MainActivity',
         before: null,
         after: null,
+
+        ready: function() {
+          var that = this;
+          this.$.globals.setCurrentListener('appAction', function(){
+            fb = new Firebase('https://hcrkubi.firebaseio.com/' + that.$.globals.data.current + '/appAction');
+          });
+        },
 
         appAction: function() {
           console.log('App Action');

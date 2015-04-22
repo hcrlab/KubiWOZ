@@ -28,6 +28,10 @@
 <body unresolved fullbleed layout vertical>
 <template is="auto-binding" id="app">
 
+    <app-globals id="globals"></app-globals>
+
+    <paper-toast id="clearWarning">You must select a device before clearing Firebase!</paper-toast>
+
     <paper-action-dialog id="ConfirmClearDialog" backdrop autoCloseDisabled heading="CAUTION!">
         <p><b>This action CANNOT be reversed! This will remove ALL DATA from Firebase.</b></p>
         <p>Are you sure you wish to continue?</p>
@@ -69,6 +73,21 @@
 
             <!-- Drawer Content -->
             <div layout vertical fit>
+
+                <template if="{{devices.length > 0}}">
+                    <paper-dropdown-menu id="deviceList" label="Choose Device" on-core-select="{{devSelected}}">
+                        <paper-dropdown class="dropdown">
+                            <core-menu class="menu">
+                                <template repeat="{{devices}}">
+                                    <paper-item>{{}}</paper-item>
+                                </template>
+                            </core-menu>
+                        </paper-dropdown>
+                    </paper-dropdown-menu>
+                </template>
+                <template if="{{devices.length == 0}}">
+                    <h3>No Devices Connected!</h3>
+                </template>
 
                 <core-menu selected="{{menuOption}}">
                     <!-- Put the menu items here for however you want to subdivide the interface -->

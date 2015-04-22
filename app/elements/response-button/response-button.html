@@ -5,17 +5,26 @@
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
+    <app-globals id="globals"></app-globals>
+
     <paper-button raised class="colored" on-click="{{response}}"><content id="content"></content></paper-button>
   </template>
   <script>
     (function () {
-      var fb = new Firebase('https://hcrkubi.firebaseio.com/response');
+      var fb = null;
 
       Polymer({
 
         action: null,
         text: null,
         lan: 'EN',
+
+        ready: function() {
+          var that = this;
+          this.$.globals.setCurrentListener('response', function(){
+            fb = new Firebase('https://hcrkubi.firebaseio.com/' + that.$.globals.data.current + '/response');
+          });
+        },
 
         response: function() {
           console.log('Response');

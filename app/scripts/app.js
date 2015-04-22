@@ -4,6 +4,8 @@
     // Add some properties to our auto-binding template:
     //  Any field added to the `app` object can be binded to using {{}} notation in index.html
     var app = document.querySelector('#app');
+    var selectionMade = false;
+
     app.appName = 'Kubi Tutor - Wizard of Oz Controller App';
     app.menuOption = 0;
 
@@ -35,13 +37,17 @@
     };
 
     app.clearFb = function() {
-        fb.remove(function(error) {
-            if(error) {
-                console.log('Error deleting data fom Firebase!');
-            } else {
-                app.$.ClearedDialog.toggle();
-            }
-        });
+        if(selectionMade) {
+            fb.child(app.$.globals.data.current).remove(function(error) {
+                if(error) {
+                    console.log('Error deleting data fom Firebase!');
+                } else {
+                    app.$.ClearedDialog.toggle();
+                }
+            });
+        } else {
+            app.$.clearWarning.show();
+        }
     };
 
     // Allow the user to logout if need be
@@ -69,7 +75,24 @@
         if(!app.authenticated) {
             document.querySelector('#loginDialog').opened = true;
         }
+
+        app.$.globals.setListener("index", function() {
+            app.devices = app.$.globals.data.ids;
+
+            console.log(app.devices);
+        });
     });
+
+    app.devices = [];
+
+    app.devSelected = function(e) {
+        if(e.detail.isSelected) {
+            selectionMade = true;
+            console.log(e.detail.item.innerText);
+            app.$.globals.data.current = e.detail.item.innerText;
+        }
+    };
+
 
 // wrap document so it plays nice with other libraries
 // http://www.polymer-project.org/platform/shadow-dom.html#wrappers
