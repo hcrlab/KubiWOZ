@@ -32,17 +32,17 @@
 
     <paper-toast id="clearWarning">You must select a device before clearing Firebase!</paper-toast>
 
-    <paper-action-dialog id="ConfirmClearDialog" backdrop autoCloseDisabled heading="CAUTION!">
-        <p><b>This action CANNOT be reversed! This will remove ALL DATA from Firebase.</b></p>
+    <paper-emotion-dialog id="ConfirmClearDialog" backdrop autoCloseDisabled heading="CAUTION!">
+        <p><b>This emotion CANNOT be reversed! This will remove ALL DATA from Firebase.</b></p>
         <p>Are you sure you wish to continue?</p>
         <paper-button affirmative autofocus>Cancel</paper-button>
         <paper-button affirmative on-click="{{clearFb}}">Continue</paper-button>
-    </paper-action-dialog>
+    </paper-emotion-dialog>
 
-    <paper-action-dialog id="ClearedDialog" backdrop heading="Firebase Cleared">
+    <paper-emotion-dialog id="ClearedDialog" backdrop heading="Firebase Cleared">
         <p>All data removed!</p>
         <paper-button affirmative autofocus>Ok</paper-button>
-    </paper-action-dialog>
+    </paper-emotion-dialog>
 
     <!-- Login Form -->
     <core-overlay id="loginDialog" backdrop autoCloseDisabled layered="false" layout vertical>
@@ -92,11 +92,12 @@
                 <core-menu selected="{{menuOption}}">
                     <!-- Put the menu items here for however you want to subdivide the interface -->
                     <!-- Note that clicking a menu option will transition between the sections of buttons below -->
+                    <core-item label="Demo"></core-item>
                     <core-item label="Responses"></core-item>
                     <core-item label="Questions"></core-item>
                     <core-item label="Lessons"></core-item>
                     <core-item label="App Navigation"></core-item>
-                    <core-item label="Test Actions"></core-item>
+                    <core-item label="Test emotions"></core-item>
                 </core-menu>
 
                 <div layout horizontal>
@@ -131,8 +132,24 @@
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                            <response-button action="SMILE">Correct</response-button>
-                            <response-button action="SURPRISED">Excellent</response-button>
+                            <response-button action="LOOK_AROUND">LOOK AROUND</response-button>
+                            <response-button action="SLEEP" emotion="SLEEP">SLEEP</response-button>
+                            <response-button action="WAKE" emotion="WAKE">WAKE</response-button>
+                            <response-button text="hello">HELLO</response-button>
+                            <response-button text="what is your name">What is your name?</response-button>
+                            <response-button emotion="SMILE" text="It is nice to meet you">It is nice to meet you!</response-button>
+                            <response-button text="How are you doing today">How are you doing today?</response-button>
+                            <response-button text="I am Kubi. I'm a language tutor. I can teach French">Self Intro</response-button>
+                            <response-button text="Would you like to learn some new words today">Would you like to learn ...?</response-button>
+                            <response-button text="I will start with showing you a few pictures and ask you to pick one">Activity Intro</response-button>
+                        </div>
+                    </section>
+                    <!-- Responses -->
+                    <section>
+                        <div>
+                            <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
+                            <response-button emotion="SMILE">Correct</response-button>
+                            <response-button emotion="SURPRISED">Excellent</response-button>
                             <response-button>Try Again</response-button>
                         </div>
                     </section>
@@ -150,7 +167,7 @@
                     <section>
                       <div>
                         <h3>Lessons</h3>
-                        <response-button action="SMILE" text="Are you ready?">Ready</response-button><br/>
+                        <response-button emotion="SMILE" text="Are you ready?">Ready</response-button><br/>
                         <lesson-button>A Woman</lesson-button>
                         <lesson-button>A Boy</lesson-button><br/>
                         <lesson-button>The Girl</lesson-button>
@@ -163,14 +180,14 @@
 
                       <div>
                         <h3>Quizzes</h3>
-                        <response-button action="SMILE" text="Let's practice some words">Let's practice</response-button><br/>
+                        <response-button emotion="SMILE" text="Let's practice some words">Let's practice</response-button><br/>
                         <quiz-button text="une fille">Show me a girl</quiz-button>
                         <quiz-button text="un garçon">Show me a boy</quiz-button>
                         <quiz-button text="une femme">Show me a woman</quiz-button>
                       </div>
                     </section>
 
-                    <!-- App Actions -->
+                    <!-- App emotions -->
                     <section>
                         <div>
                             <app-button>Main Activity</app-button>
@@ -179,27 +196,27 @@
 
                     <section>
                         <div>
-                            <response-button action="SMILE">Smile</response-button>
-                            <response-button action="WINK">Wink</response-button>
-                            <response-button action="BLINK">Blink</response-button>
+                            <response-button emotion="SMILE">Smile</response-button>
+                            <response-button emotion="WINK">Wink</response-button>
+                            <response-button emotion="BLINK">Blink</response-button>
                         </div>
                         <div>
-                            <response-button action="GIGGLE">Giggle</response-button>
-                            <response-button action="GLARE">Glare</response-button>
-                            <response-button action="SLEEP">Sleep</response-button>
+                            <response-button emotion="GIGGLE">Giggle</response-button>
+                            <response-button emotion="GLARE">Glare</response-button>
+                            <response-button emotion="SLEEP">Sleep</response-button>
                         </div>
                         <div>
-                            <response-button action="WAKE">Wake</response-button>
-                            <response-button action="SURPRISED">Surprised</response-button>
-                            <response-button action="THINK">Think</response-button>
+                            <response-button emotion="WAKE">Wake</response-button>
+                            <response-button emotion="SURPRISED">Surprised</response-button>
+                            <response-button emotion="THINK">Think</response-button>
                         </div>
                         <div>
-                            <response-button action="GUILTY">Guilty</response-button>
-                            <response-button action="LOOK_LEFT">Look Left</response-button>
-                            <response-button action="LOOK_RIGHT">Look Right</response-button>
+                            <response-button emotion="GUILTY">Guilty</response-button>
+                            <response-button emotion="LOOK_LEFT">Look Left</response-button>
+                            <response-button emotion="LOOK_RIGHT">Look Right</response-button>
                         </div>
                         <div>
-                            <response-button action="NBLINK">N Blink</response-button>
+                            <response-button emotion="NBLINK">N Blink</response-button>
                         </div>
                     </section>
                 </core-animated-pages>
