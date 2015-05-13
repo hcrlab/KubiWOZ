@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="response-button" attributes="action lan text">
+<polymer-element name="response-button" attributes="emotion action lan text">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -15,6 +15,7 @@
 
       Polymer({
 
+        emotion: null,
         action: null,
         text: null,
         lan: 'EN',
@@ -29,9 +30,9 @@
         response: function() {
           console.log('Response');
 
-          if(!this.text) {
+          /*if(!this.text) {
             this.text = this.$.content.getDistributedNodes()[0].data;
-          }
+          }*/
 
           fb.push().set({
             tasks: [{
@@ -39,6 +40,7 @@
                 text: this.text,
                 language: this.lan
               },
+              emotion: this.emotion,
               action: this.action
             }],
             handled: false
