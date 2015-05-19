@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="lesson-button" attributes="text lan img">
+<polymer-element name="lesson-button" attributes="prompt text lan img">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -15,6 +15,7 @@
 
       Polymer({
 
+        prompt: "Please tap on a picture of ",
         text: null,
         lan: 'EN',
         img: null,
@@ -36,7 +37,7 @@
           fb.push().set({
             tasks: [{
               speech: {
-                text: this.text,
+                text: this.prompt + this.text,
                 language: this.lan
               },
               img: this.img
