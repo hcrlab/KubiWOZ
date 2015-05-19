@@ -37,10 +37,12 @@
             this.textEN = this.$.content.getDistributedNodes()[0].data;
           }
 
+          this.textEN += this.prompt1;
+
           fb.push().set({
             tasks: [{
               speech: {
-                text: this.textEN + this.prompt1,
+                text: this.textEN,
                 language: this.lan
               },
               img: this.img
