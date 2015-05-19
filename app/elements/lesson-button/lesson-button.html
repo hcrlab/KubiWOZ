@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="lesson-button" attributes="prompt text lan img">
+<polymer-element name="lesson-button" attributes="prompt text lan image">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -18,7 +18,7 @@
         prompt: "Please tap on a picture of ",
         text: null,
         lan: 'EN',
-        img: null,
+        image: null,
 
         ready: function() {
           var that = this;
@@ -34,15 +34,13 @@
             this.text = this.$.content.getDistributedNodes()[0].data;
           }
 
-          this.text = this.prompt + this.text;
-
           fb.push().set({
             tasks: [{
               speech: {
-                text: this.text,
+                text: this.prompt + this.text,
                 language: this.lan
               },
-              img: this.img
+              image: this.image
             }],
             handled: false
           });

@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="practice-button" attributes="prompt1 prompt2 prompt3 textEN textFR lan img">
+<polymer-element name="practice-button" attributes="prompt1 prompt2 prompt3 textEN textFR lan image">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -21,12 +21,12 @@
         textEN: null,
         textFR: null,
         lan: 'EN',
-        img: null,
+        image: null,
 
         ready: function() {
           var that = this;
           this.$.globals.setCurrentListener('practice', function(){
-            fb = new Firebase('https://hcrkubi.firebaseio.com/' + that.$.globals.data.current + '/lesson');
+            fb = new Firebase('https://hcrkubi.firebaseio.com/' + that.$.globals.data.current + '/practice');
           });
         },
 
@@ -45,42 +45,42 @@
                 text: this.textEN,
                 language: this.lan
               },
-              img: this.img
+              image: this.image
             },
             {
               speech: {
                 text: this.textFR,
                 language: 'FR'
               },
-              img: this.img
+              image: this.image
             },
             {
               speech: {
                 text: this.prompt2,
                 language: this.lan
               },
-              img: this.img
+              image: this.image
             },
             {
               speech: {
                 text: this.textFR,
                 language: 'FR'
               },
-              img: this.img
+              image: this.image
             },
             {
               speech: {
                 text: this.prompt3,
                 language: this.lan
               },
-              img: this.img
+              image: this.image
             },
             {
               speech: {
                 text: this.textFR,
                 language: 'FR'
               },
-              img: this.img
+              image: this.image
             }],
             handled: false
           });
