@@ -1,0 +1,89 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="practice-button" attributes="prompt1 prompt2 prompt3 textEN textFR lan img">
+  <template>
+    <link rel="stylesheet" href="../fb-button.css">
+
+    <app-globals id="globals"></app-globals>
+
+    <paper-button raised class="colored" on-click="{{practice}}"><content id="content"></content></paper-button>
+  </template>
+  <script>
+    (function () {
+      var fb = null;
+
+      Polymer({
+
+        prompt1: " in French is ",
+        prompt2: " please repeat after me ",
+        prompt3: " one more time ",
+        textEN: null,
+        textFR: null,
+        lan: 'EN',
+        img: null,
+
+        ready: function() {
+          var that = this;
+          this.$.globals.setCurrentListener('practice', function(){
+            fb = new Firebase('https://hcrkubi.firebaseio.com/' + that.$.globals.data.current + '/lesson');
+          });
+        },
+
+        practice: function() {
+          console.log('Practice');
+
+          if(!this.textEN) {
+            this.textEN = this.$.content.getDistributedNodes()[0].data;
+          }
+
+          fb.push().set({
+            tasks: [{
+              speech: {
+                text: this.textEN + this.prompt1,
+                language: this.lan
+              },
+              img: this.img
+            },
+            {
+              speech: {
+                text: this.textFR,
+                language: 'FR'
+              },
+              img: this.img
+            },
+            {
+              speech: {
+                text: this.prompt2,
+                language: this.lan
+              },
+              img: this.img
+            },
+            {
+              speech: {
+                text: this.textFR,
+                language: 'FR'
+              },
+              img: this.img
+            },
+            {
+              speech: {
+                text: this.prompt3,
+                language: this.lan
+              },
+              img: this.img
+            },
+            {
+              speech: {
+                text: this.textFR,
+                language: 'FR'
+              },
+              img: this.img
+            }],
+            handled: false
+          });
+        }
+      });
+    })();
+  </script>
+</polymer-element>
