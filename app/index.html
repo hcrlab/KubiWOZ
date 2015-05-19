@@ -128,10 +128,38 @@
             <!-- Main Content -->
             <div id="main">
                 <core-animated-pages transitions="cross-fade-all" selected="{{menuOption}}">
-                    <!-- Responses -->
+                    <!-- Lesson 1 -->
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
+                            <response-button text="Welcome to the first lesson in French. In this lesson, you will learn a few new words. Let us get started.">Introduce lesson</response-button>
+                            <response-button text="I will start with showing you a few pictures and ask you to pick one">Activity Intro</response-button> <br/>
+                            
+                            <lesson-button text="an apple" img="apple">Select an apple</lesson-button>
+                            <lesson-button text="a girl" img="girl">Select a girl</lesson-button>
+                            <practice-button textEN="an apple" textFR="une pomme" img="apple">Practice an apple</repeat-button> <br/>
+
+                            <lesson-button text="a boy" img="boy">Select a boy</lesson-button>
+                            <quiz-button text="une pomme" img="apple">Quiz: une pomme</quiz-button>
+                            <practice-button textEN="a girl" textFR="une fille" img="girl">Practice a girl</repeat-button> <br/>
+
+                            <lesson-button text="a banana" img="banana">Select a banana</lesson-button>
+                            <quiz-button text="une fille" img="girl">Quiz: une fille</quiz-button>
+                            <practice-button textEN="a boy" textFR="un garçon" img="boy">Practice a boy</repeat-button> <br/>
+
+                            <practice-button textEN="a banana" textFR="une banane" img="banana">Practice a banana</repeat-button>
+                            <quiz-button text="un garçon" img="boy">Quiz: un garçon</quiz-button>
+                            <quiz-button text="une banane" img="banana">Quiz: une banane</quiz-button> <br/>
+
+                        </div>
+                    </section>
+                    <!-- Lesson 1 -->
+                    <!-- Demo -->
+                    <section>
+                        <div>
+                            <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
+                            <response-button action="NOD" text="Yes">YES</response-button>
+                            <response-button action="SHAKE" text="No">NO</response-button>
                             <response-button action="LOOK_AROUND">LOOK AROUND</response-button>
                             <response-button action="SLEEP" emotion="SLEEP">SLEEP</response-button>
                             <response-button action="WAKE" emotion="WAKE">WAKE</response-button>
@@ -144,7 +172,7 @@
                             <response-button text="I will start with showing you a few pictures and ask you to pick one">Activity Intro</response-button>
                         </div>
                     </section>
-                    <!-- Responses -->
+                    <!-- Demo -->
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
