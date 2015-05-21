@@ -133,18 +133,34 @@
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                            <response-button text="Welcome to the first lesson in French. In this lesson, you will learn a few new words. Let us get started.">Introduce lesson</response-button>
-                            <response-button text="I will start with showing you a few pictures and ask you to pick one">Activity Intro</response-button> <br/>
+                            <woz-button say="Welcome to the first lesson in French. In this lesson, you will learn a few new words. Let us get started.">Introduce lesson</woz-button>
+                            <woz-button say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button> <br/>
                             
-                            <lesson-button text="an apple" image="apple">Select an apple</lesson-button>
-                            <lesson-button text="a girl" image="girl">Select a girl</lesson-button>
-                            <practice-button textEN="an apple" textFR="une pomme" image="apple">Practice an apple</practice-button> <br/>
+                            <woz-button  say="Please tap on a picture of an apple"
+                                            txtL="Une pomme" imgL="APPLE"
+                                            txtR="Une banane" imgR="BANANA">
+                                Select an apple
+                            </woz-button>
+                            <woz-button  say="Please tap on a picture of a girl"
+                                         txtL="Une pomme" imgL="APPLE"
+                                         txtR="Une fille" imgR="GIRL">
+                                Select a girl
+                            </woz-button>
+                            <practice-button textEN="An apple" textFR="Une pomme" image="APPLE">Practice an apple</practice-button> <br/>
 
-                            <lesson-button text="a boy" image="boy">Select a boy</lesson-button>
+                            <woz-button  say="Please tap on a picture of a boy"
+                                         txtL="Un garçon" imgL="BOY"
+                                         txtR="Une banane" imgR="BANANA">
+                                Select a boy
+                            </woz-button>
                             <quiz-button text="une pomme" image="apple">Quiz: une pomme</quiz-button>
                             <practice-button textEN="a girl" textFR="une fille" image="girl">Practice a girl</practice-button> <br/>
 
-                            <lesson-button text="a banana" image="banana">Select a banana</lesson-button>
+                            <woz-button  say="Please tap on a picture of a banana"
+                                         txtL="Une pomme" imgL="APPLE"
+                                         txtR="Une banane" imgR="BANANA">
+                                Select a banana
+                            </woz-button>
                             <quiz-button text="une fille" image="girl">Quiz: une fille</quiz-button>
                             <practice-button textEN="a boy" textFR="un garçon" image="boy">Practice a boy</practice-button> <br/>
 
@@ -152,9 +168,9 @@
                             <quiz-button text="un garçon" image="boy">Quiz: un garçon</quiz-button>
                             <quiz-button text="une banane" image="banana">Quiz: une banane</quiz-button> <br/>
 
-                            <response-button emotion="SMILE" text="That is correct">Correct</response-button>
-                            <response-button emotion="SMILE" text="Excellent">Excellent</response-button>
-                            <response-button text="Please try again">Try Again</response-button> <br/>
+                            <woz-button emotion="SMILE" say="That is correct">Correct</woz-button>
+                            <woz-button emotion="SMILE" say="Excellent">Excellent</woz-button>
+                            <woz-button say="Please try again">Try Again</woz-button> <br/>
 
                         </div>
                     </section>
@@ -163,27 +179,27 @@
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                            <response-button action="NOD" text="Yes">YES</response-button>
-                            <response-button action="SHAKE" text="No">NO</response-button>
-                            <response-button action="LOOK_AROUND">LOOK AROUND</response-button>
-                            <response-button action="SLEEP" emotion="SLEEP">SLEEP</response-button>
-                            <response-button action="WAKE" emotion="WAKE">WAKE</response-button>
-                            <response-button text="hello">HELLO</response-button>
-                            <response-button text="what is your name">What is your name?</response-button>
-                            <response-button emotion="SMILE" text="It is nice to meet you">It is nice to meet you!</response-button>
-                            <response-button text="How are you doing today">How are you doing today?</response-button>
-                            <response-button text="I am Kubi. I'm a language tutor. I can teach French">Self Intro</response-button>
-                            <response-button text="Would you like to learn some new words today">Would you like to learn ...?</response-button>
-                            <response-button text="I will start with showing you a few pictures and ask you to pick one">Activity Intro</response-button>
+                            <woz-button action="NOD" say="Yes">YES</woz-button>
+                            <woz-button action="SHAKE" say="No">NO</woz-button>
+                            <woz-button action="LOOK_AROUND">LOOK AROUND</woz-button>
+                            <woz-button action="SLEEP" emotion="SLEEP">SLEEP</woz-button>
+                            <woz-button action="WAKE" emotion="WAKE">WAKE</woz-button>
+                            <woz-button say="hello">HELLO</woz-button>
+                            <woz-button say="what is your name">What is your name?</woz-button>
+                            <woz-button emotion="SMILE" say="It is nice to meet you">It is nice to meet you!</woz-button>
+                            <woz-button say="How are you doing today">How are you doing today?</woz-button>
+                            <woz-button say="I am Kubi. I'm a language tutor. I can teach French">Self Intro</woz-button>
+                            <woz-button say="Would you like to learn some new words today">Would you like to learn ...?</woz-button>
+                            <woz-button say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button>
                         </div>
                     </section>
                     <!-- Demo -->
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                            <response-button emotion="SMILE">Correct</response-button>
-                            <response-button emotion="SURPRISED">Excellent</response-button>
-                            <response-button>Try Again</response-button>
+                            <woz-button emotion="SMILE">Correct</woz-button>
+                            <woz-button emotion="SURPRISED">Excellent</woz-button>
+                            <woz-button>Try Again</woz-button>
                         </div>
                     </section>
 
@@ -200,7 +216,7 @@
                     <section>
                       <div>
                         <h3>Lessons</h3>
-                        <response-button emotion="SMILE" text="Are you ready?">Ready</response-button><br/>
+                        <woz-button emotion="SMILE" say="Are you ready?">Ready</woz-button><br/>
                         <lesson-button>A Woman</lesson-button>
                         <lesson-button>A Boy</lesson-button><br/>
                         <lesson-button>The Girl</lesson-button>
@@ -213,7 +229,7 @@
 
                       <div>
                         <h3>Quizzes</h3>
-                        <response-button emotion="SMILE" text="Let's practice some words">Let's practice</response-button><br/>
+                        <woz-button emotion="SMILE" say="Let's practice some words">Let's practice</woz-button><br/>
                         <quiz-button text="une fille">Show me a girl</quiz-button>
                         <quiz-button text="un garçon">Show me a boy</quiz-button>
                         <quiz-button text="une femme">Show me a woman</quiz-button>
@@ -229,27 +245,27 @@
 
                     <section>
                         <div>
-                            <response-button emotion="SMILE">Smile</response-button>
-                            <response-button emotion="WINK">Wink</response-button>
-                            <response-button emotion="BLINK">Blink</response-button>
+                            <woz-button emotion="SMILE">Smile</woz-button>
+                            <woz-button emotion="WINK">Wink</woz-button>
+                            <woz-button emotion="BLINK">Blink</woz-button>
                         </div>
                         <div>
-                            <response-button emotion="GIGGLE">Giggle</response-button>
-                            <response-button emotion="GLARE">Glare</response-button>
-                            <response-button emotion="SLEEP">Sleep</response-button>
+                            <woz-button emotion="GIGGLE">Giggle</woz-button>
+                            <woz-button emotion="GLARE">Glare</woz-button>
+                            <woz-button emotion="SLEEP">Sleep</woz-button>
                         </div>
                         <div>
-                            <response-button emotion="WAKE">Wake</response-button>
-                            <response-button emotion="SURPRISED">Surprised</response-button>
-                            <response-button emotion="THINK">Think</response-button>
+                            <woz-button emotion="WAKE">Wake</woz-button>
+                            <woz-button emotion="SURPRISED">Surprised</woz-button>
+                            <woz-button emotion="THINK">Think</woz-button>
                         </div>
                         <div>
-                            <response-button emotion="GUILTY">Guilty</response-button>
-                            <response-button emotion="LOOK_LEFT">Look Left</response-button>
-                            <response-button emotion="LOOK_RIGHT">Look Right</response-button>
+                            <woz-button emotion="GUILTY">Guilty</woz-button>
+                            <woz-button emotion="LOOK_LEFT">Look Left</woz-button>
+                            <woz-button emotion="LOOK_RIGHT">Look Right</woz-button>
                         </div>
                         <div>
-                            <response-button emotion="NBLINK">N Blink</response-button>
+                            <woz-button emotion="NBLINK">N Blink</woz-button>
                         </div>
                     </section>
                 </core-animated-pages>

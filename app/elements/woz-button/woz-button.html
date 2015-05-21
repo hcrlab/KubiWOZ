@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="response-button" attributes="emotion action lan text">
+<polymer-element name="woz-button" attributes="emotion action lan say imgL txtL imgR txtR">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -17,8 +17,12 @@
 
         emotion: null,
         action: null,
-        text: null,
+        say: null,
         lan: 'EN',
+        imgL: null,
+        txtL: null,
+        imgR: null,
+        txtR: null,
 
         ready: function() {
           var that = this;
@@ -37,11 +41,15 @@
           fb.push().set({
             tasks: [{
               speech: {
-                text: this.text,
+                text: this.say,
                 language: this.lan
               },
               emotion: this.emotion,
-              action: this.action
+              action: this.action,
+              leftImage: this.imgL,
+              leftText: this.txtL,
+              rightImage: this.imgR,
+              rightText: this.txtR
             }],
             handled: false
           });
