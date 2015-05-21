@@ -92,6 +92,7 @@
                 <core-menu selected="{{menuOption}}">
                     <!-- Put the menu items here for however you want to subdivide the interface -->
                     <!-- Note that clicking a menu option will transition between the sections of buttons below -->
+                    <core-item label="Lesson 1"></core-item>
                     <core-item label="Demo"></core-item>
                     <core-item label="Responses"></core-item>
                     <core-item label="Questions"></core-item>
@@ -128,10 +129,42 @@
             <!-- Main Content -->
             <div id="main">
                 <core-animated-pages transitions="cross-fade-all" selected="{{menuOption}}">
-                    <!-- Responses -->
+                    <!-- Lesson 1 -->
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
+                            <response-button text="Welcome to the first lesson in French. In this lesson, you will learn a few new words. Let us get started.">Introduce lesson</response-button>
+                            <response-button text="I will start with showing you a few pictures and ask you to pick one">Activity Intro</response-button> <br/>
+                            
+                            <lesson-button text="an apple" image="apple">Select an apple</lesson-button>
+                            <lesson-button text="a girl" image="girl">Select a girl</lesson-button>
+                            <practice-button textEN="an apple" textFR="une pomme" image="apple">Practice an apple</practice-button> <br/>
+
+                            <lesson-button text="a boy" image="boy">Select a boy</lesson-button>
+                            <quiz-button text="une pomme" image="apple">Quiz: une pomme</quiz-button>
+                            <practice-button textEN="a girl" textFR="une fille" image="girl">Practice a girl</practice-button> <br/>
+
+                            <lesson-button text="a banana" image="banana">Select a banana</lesson-button>
+                            <quiz-button text="une fille" image="girl">Quiz: une fille</quiz-button>
+                            <practice-button textEN="a boy" textFR="un garçon" image="boy">Practice a boy</practice-button> <br/>
+
+                            <practice-button textEN="a banana" textFR="une banane" image="banana">Practice a banana</practice-button>
+                            <quiz-button text="un garçon" image="boy">Quiz: un garçon</quiz-button>
+                            <quiz-button text="une banane" image="banana">Quiz: une banane</quiz-button> <br/>
+
+                            <response-button emotion="SMILE" text="That is correct">Correct</response-button>
+                            <response-button emotion="SMILE" text="Excellent">Excellent</response-button>
+                            <response-button text="Please try again">Try Again</response-button> <br/>
+
+                        </div>
+                    </section>
+                    <!-- Lesson 1 -->
+                    <!-- Demo -->
+                    <section>
+                        <div>
+                            <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
+                            <response-button action="NOD" text="Yes">YES</response-button>
+                            <response-button action="SHAKE" text="No">NO</response-button>
                             <response-button action="LOOK_AROUND">LOOK AROUND</response-button>
                             <response-button action="SLEEP" emotion="SLEEP">SLEEP</response-button>
                             <response-button action="WAKE" emotion="WAKE">WAKE</response-button>
@@ -144,7 +177,7 @@
                             <response-button text="I will start with showing you a few pictures and ask you to pick one">Activity Intro</response-button>
                         </div>
                     </section>
-                    <!-- Responses -->
+                    <!-- Demo -->
                     <section>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
