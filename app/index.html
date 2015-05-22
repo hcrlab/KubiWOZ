@@ -86,7 +86,9 @@
                     </paper-dropdown-menu>
                 </template>
                 <template if="{{devices.length == 0}}">
-                    <h3>No Devices Connected!</h3>
+                    <div class="DevError">
+                        <h3>No Devices Connected!</h3>
+                    </div>
                 </template>
 
                 <core-menu selected="{{menuOption}}">

@@ -12,6 +12,13 @@ h3 {
   padding: 24px;
 }
 
+paper-dropdown-menu {
+  padding-left: 10px;
+}
+
+.DevError {
+  padding: 20px;
+}
 paper-button.colored {
   color: #4b2e83;
 }
