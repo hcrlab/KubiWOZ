@@ -9,8 +9,8 @@
     app.appName = 'Kubi Tutor - Wizard of Oz Controller App';
     app.menuOption = 0;
 
-    app.email = null;
-    app.password = null;
+    app.email = "hcr@cs.uw.edu";
+    app.password = "testpass";
 
     // Connect to the firebase and setup the login function
     var fb = new Firebase('https://hcrkubi.firebaseio.com/');
@@ -82,6 +82,8 @@
     // have resolved and content has been stamped to the page
     app.addEventListener('template-bound', function() {
         console.log('Our app is ready to rock!');
+
+        app.submitLogin();
 
         if(!app.authenticated) {
             document.querySelector('#loginDialog').opened = true;

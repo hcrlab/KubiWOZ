@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="woz-button" attributes="emotion action lan say imgL txtL imgR txtR clazz">
+<polymer-element name="woz-button" attributes="emotion action say lan sayB lanB imgL txtL imgR txtR clazz">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
@@ -19,6 +19,8 @@
         action: null,
         say: null,
         lan: 'EN',
+        sayB: null,
+        lanB: 'FR',
         imgL: null,
         txtL: null,
         imgR: null,
@@ -35,23 +37,32 @@
         response: function() {
           console.log('Response');
 
-          /*if(!this.text) {
-            this.text = this.$.content.getDistributedNodes()[0].data;
-          }*/
+          var taskList = [];
+
+          taskList.push({
+            speech: {
+              text: this.say,
+              language: this.lan
+            },
+            emotion: this.emotion,
+            action: this.action,
+            leftImage: this.imgL,
+            leftText: this.txtL,
+            rightImage: this.imgR,
+            rightText: this.txtR
+          });
+
+          if(this.sayB != null) {
+            taskList.push({
+              speech: {
+                text: this.sayB,
+                language: this.lanB
+              }
+            });
+          }
 
           fb.push().set({
-            tasks: [{
-              speech: {
-                text: this.say,
-                language: this.lan
-              },
-              emotion: this.emotion,
-              action: this.action,
-              leftImage: this.imgL,
-              leftText: this.txtL,
-              rightImage: this.imgR,
-              rightText: this.txtR
-            }],
+            tasks: taskList,
             handled: false
           });
         }

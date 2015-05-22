@@ -94,10 +94,7 @@
                     <!-- Note that clicking a menu option will transition between the sections of buttons below -->
                     <core-item label="Lesson #1"></core-item>
                     <core-item label="Demo"></core-item>
-                    <core-item label="Responses"></core-item>
                     <core-item label="Questions"></core-item>
-                    <core-item label="Lessons"></core-item>
-                    <core-item label="App Navigation"></core-item>
                     <core-item label="Test emotions"></core-item>
                 </core-menu>
 
@@ -132,15 +129,16 @@
                     <!-- Lesson 1 -->
                     <section>
                         <div>
-
                             <div layout horizontal>
                                 <div flex>
                                     <core-animated-pages transitions="cross-fade-all" selected="{{lessonStep}}">
                                         <section>
+                                            <h3>Lesson Introduction</h3>
                                             <woz-button say="Welcome to the first lesson in French. In this lesson, you will learn a few new words. Let us get started.">Introduce lesson</woz-button>
                                             <woz-button say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button>
                                         </section>
                                         <section>
+                                            <h3>Show An Apple</h3>
                                             <woz-button  say="Please tap on a picture of an apple"
                                                          txtL="Une pomme" imgL="APPLE"
                                                          txtR="Une banane" imgR="BANANA">
@@ -148,6 +146,7 @@
                                             </woz-button>
                                         </section>
                                         <section>
+                                            <h3>Show A Girl</h3>
                                             <woz-button  say="Please tap on a picture of a girl"
                                                          txtL="Une pomme" imgL="APPLE"
                                                          txtR="Une fille" imgR="GIRL">
@@ -155,9 +154,23 @@
                                             </woz-button>
                                         </section>
                                         <section>
-                                            <practice-button textEN="An apple" textFR="Une pomme" image="APPLE">Practice an apple</practice-button>
+                                            <h3>Practice An Apple</h3>
+                                            <woz-button  say="An apple in French is"
+                                                         sayB="Une pomme"
+                                                         txtL="Une pomme" imgL="APPLE">
+                                                Practice "An Apple" Intro
+                                            </woz-button>
+                                            <woz-button  say="Repeat after me"
+                                                         sayB="Une pomme">
+                                                Repeat "An Apple"
+                                            </woz-button>
+                                            <woz-button  say="One more time"
+                                                         sayB="Une pomme">
+                                                Repeat "An Apple" Again
+                                            </woz-button>
                                         </section>
                                         <section>
+                                            <h3>Show A Boy</h3>
                                             <woz-button  say="Please tap on a picture of a boy"
                                                          txtL="Un garçon" imgL="BOY"
                                                          txtR="Une banane" imgR="BANANA">
@@ -165,12 +178,32 @@
                                             </woz-button>
                                         </section>
                                         <section>
-                                            <quiz-button text="une pomme" image="APPLE">Quiz: une pomme</quiz-button>
+                                            <h3>Quiz An Apple</h3>
+                                            <woz-button  say="Please translate"
+                                                         sayB="une pomme"
+                                                         txtL="An Apple" imgL="APPLE"
+                                                         txtR="A Banana" imgR="BANANA">
+                                                Quiz Apple
+                                            </woz-button>
                                         </section>
                                         <section>
-                                            <practice-button textEN="a girl" textFR="une fille" image="GIRL">Practice a girl</practice-button>
+                                            <h3>Practice A Girl</h3>
+                                            <woz-button  say="A girl in French is"
+                                                         sayB="une fille"
+                                                         txtL="une fille" imgL="GIRL">
+                                                Intro "A Girl"
+                                            </woz-button>
+                                            <woz-button  say="Repeat after me"
+                                                         sayB="une fille">
+                                                Repeat "A Girl"
+                                            </woz-button>
+                                            <woz-button  say="One more time"
+                                                         sayB="une fille">
+                                                Repeat "A Girl" Again
+                                            </woz-button>
                                         </section>
                                         <section>
+                                            <h3>Show A Banana</h3>
                                             <woz-button  say="Please tap on a picture of a banana"
                                                          txtL="Une pomme" imgL="APPLE"
                                                          txtR="Une banane" imgR="BANANA">
@@ -178,19 +211,63 @@
                                             </woz-button>
                                         </section>
                                         <section>
-                                            <quiz-button text="une fille" image="GIRL">Quiz: une fille</quiz-button>
+                                            <h3>Quiz A Girl</h3>
+                                            <woz-button  say="Please translate"
+                                                         sayB="une fille"
+                                                         txtL="An Apple" imgL="APPLE"
+                                                         txtR="A Girl" imgR="GIRL">
+                                                Quiz Girl
+                                            </woz-button>
                                         </section>
                                         <section>
-                                            <practice-button textEN="a boy" textFR="un garçon" image="BOY">Practice a boy</practice-button>
+                                            <h3>Practice A Boy</h3>
+                                            <woz-button  say="A boy in French is"
+                                                         sayB="un garçon"
+                                                         txtL="un garçon" imgL="BOY">
+                                                Intro "A Boy"
+                                            </woz-button>
+                                            <woz-button  say="Repeat after me"
+                                                         sayB="un garçon">
+                                                Repeat "A Boy"
+                                            </woz-button>
+                                            <woz-button  say="One more time"
+                                                         sayB="un garçon">
+                                                Repeat "A Boy" Again
+                                            </woz-button>
                                         </section>
                                         <section>
-                                            <practice-button textEN="a banana" textFR="une banane" image="BANANA">Practice a banana</practice-button>
+                                            <h3>Practice A Banana</h3>
+                                            <woz-button  say="A banana in French is"
+                                                         sayB="une banane"
+                                                         txtL="une banane" imgL="BANANA">
+                                                Intro "A Banana"
+                                            </woz-button>
+                                            <woz-button  say="Repeat after me"
+                                                         sayB="une banane">
+                                                Repeat "A Banana"
+                                            </woz-button>
+                                            <woz-button  say="One more time"
+                                                         sayB="une banane">
+                                                Repeat "A Banana" Again
+                                            </woz-button>
                                         </section>
                                         <section>
-                                            <quiz-button text="un garçon" image="BOY">Quiz: un garçon</quiz-button>
+                                            <h3>Quiz A Boy</h3>
+                                            <woz-button  say="Please translate"
+                                                         sayB="un garçon"
+                                                         txtL="A Boy" imgL="BOY"
+                                                         txtR="A Banana" imgR="BANANA">
+                                                Quiz Boy
+                                            </woz-button>
                                         </section>
                                         <section>
-                                            <quiz-button text="une banane" image="BANANA">Quiz: une banane</quiz-button>
+                                            <h3>Quiz A Banana</h3>
+                                            <woz-button  say="Please translate"
+                                                         sayB="une banane"
+                                                         txtL="A Banana" imgL="BANANA"
+                                                         txtR="An Apple" imgR="APPLE">
+                                                Quiz Banana
+                                            </woz-button>
                                         </section>
                                     </core-animated-pages>
                                 </div>
@@ -215,9 +292,10 @@
                             </div>
                         </div>
                     </section>
-                    <!-- Lesson 1 -->
+
                     <!-- Demo -->
                     <section>
+                        <h3>Demo Video</h3>
                         <div>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
                             <woz-button action="NOD" say="Yes">YES</woz-button>
@@ -234,57 +312,20 @@
                             <woz-button say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button>
                         </div>
                     </section>
-                    <!-- Demo -->
-                    <section>
-                        <div>
-                            <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
-                            <woz-button emotion="SMILE">Correct</woz-button>
-                            <woz-button emotion="SURPRISED">Excellent</woz-button>
-                            <woz-button>Try Again</woz-button>
-                        </div>
-                    </section>
 
                     <!-- Questions -->
                     <section>
+                        <h3>Questions</h3>
                         <div>
-                            <question-button btns="{{YesNo}}" text="Do you need a hint?">Hint</question-button>
-                            <question-button btns="{{YesNo}}" text="Do you want to review?">Review</question-button>
-                            <question-button btns="{{Ok}}">Are you there?</question-button>
+                            <woz-button say="Do you need a hint?">Hint</woz-button>
+                            <woz-button say="Do you want to review?">Review</woz-button>
+                            <woz-button say="Are you there?">Are you there?</woz-button>
                         </div>
-                    </section>
-
-                    <!-- Lessons and Quizzes -->
-                    <section>
-                      <div>
-                        <h3>Lessons</h3>
-                        <woz-button emotion="SMILE" say="Are you ready?">Ready</woz-button><br/>
-                        <lesson-button>A Woman</lesson-button>
-                        <lesson-button>A Boy</lesson-button><br/>
-                        <lesson-button>The Girl</lesson-button>
-                        <lesson-button>The Woman</lesson-button>
-                        <lesson-button>The Boy</lesson-button><br/>
-                        <lesson-button>This is a girl</lesson-button>
-                        <lesson-button>This is a woman</lesson-button>
-                        <lesson-button>This is a boy</lesson-button>
-                      </div>
-
-                      <div>
-                        <h3>Quizzes</h3>
-                        <woz-button emotion="SMILE" say="Let's practice some words">Let's practice</woz-button><br/>
-                        <quiz-button text="une fille">Show me a girl</quiz-button>
-                        <quiz-button text="un garçon">Show me a boy</quiz-button>
-                        <quiz-button text="une femme">Show me a woman</quiz-button>
-                      </div>
                     </section>
 
                     <!-- App emotions -->
                     <section>
-                        <div>
-                            <app-button>Main Activity</app-button>
-                        </div>
-                    </section>
-
-                    <section>
+                        <h3>Emotions</h3>
                         <div>
                             <woz-button emotion="SMILE">Smile</woz-button>
                             <woz-button emotion="WINK">Wink</woz-button>
