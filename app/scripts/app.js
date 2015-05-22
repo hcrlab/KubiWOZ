@@ -68,7 +68,7 @@
     };
 
     app.lessonStep = 0;
-    app.totalSteps = 12;
+    app.totalSteps = 13;
 
     app.prevLessonPart = function() {
         app.lessonStep -= 1;

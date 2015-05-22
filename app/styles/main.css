@@ -19,6 +19,12 @@ paper-dropdown-menu {
 .DevError {
   padding: 20px;
 }
+
+.btnGroup {
+  margin-left: 20px;
+  text-align: center;
+}
+
 paper-button.colored {
   color: #4b2e83;
 }

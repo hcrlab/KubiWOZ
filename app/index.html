@@ -135,9 +135,17 @@
                                 <div flex>
                                     <core-animated-pages transitions="cross-fade-all" selected="{{lessonStep}}">
                                         <section>
+                                            <h3>Kubi Introduction</h3>
+                                            <woz-button emotion="SMILE" action="YAY" say="Hi there! What is your name?">Hello</woz-button>
+                                            <woz-button say="Nice to meet you! I am Kuubee. I am a language tutor.">Introduce Kubi</woz-button>
+                                            <woz-button emotion="THINK" say="Would you like to learn some French with me?">Learn French?</woz-button>
+                                        </section>
+                                        <section>
                                             <h3>Lesson Introduction</h3>
-                                            <woz-button say="Welcome to the first lesson in French. In this lesson, you will learn a few new words. Let us get started.">Introduce lesson</woz-button>
+                                            <woz-button emotion="LOOK_LEFT" say="This is your first lesson in French. In this lesson, you will learn a few new words.">Introduce lesson</woz-button>
                                             <woz-button say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button>
+                                            <woz-button emotion="LOOK_RIGHT" say="Sometimes, they will be in English, and somethings they will be in French">Activity Intro</woz-button>
+                                            <woz-button emotion="THINK" say="Are you ready?">Activity Intro</woz-button>
                                         </section>
                                         <section>
                                             <h3>Show An Apple</h3>
@@ -273,11 +281,20 @@
                                         </section>
                                     </core-animated-pages>
                                 </div>
-                                <div layout vertical>
-                                    <woz-button  action="LOWER_HANDS">Lower Hands</woz-button>
-                                    <woz-button clazz="good" emotion="SMILE" say="That is correct">Correct</woz-button>
-                                    <woz-button clazz="good" emotion="SMILE" say="Excellent">Excellent</woz-button>
-                                    <woz-button clazz="bad" say="Please try again">Try Again</woz-button>
+                                <div layout vertical class="btnGroup">
+                                  <h3>Responses</h3>
+                                  <woz-button clazz="good" emotion="SMILE" action="NOD" say="That is correct">Correct</woz-button>
+                                  <woz-button clazz="good" emotion="SMILE" action="EXCELLENT" say="Excellent">Excellent</woz-button>
+                                  <woz-button clazz="good" emotion="WINK" action="YAY" say="Way to Go!">Way to Go!</woz-button>
+                                  <woz-button clazz="good" emotion="SMILE" action="YAY" say="Yay! That's Right">Yay! That's Right</woz-button>
+                                  <woz-button clazz="bad" action="OOPS" say="Oops! Please try again">Try Again</woz-button>
+                                </div>
+                                <div layout vertical class="btnGroup">
+                                  <h3>Special Actions</h3>
+                                  <woz-button action="LOWER_HANDS">Lower Hands</woz-button>
+                                  <woz-button action="RAISE_HANDS">Raise Hands</woz-button>
+                                  <woz-button action="PAY_ATTENTION">Pay Attention</woz-button>
+                                  <woz-button action="LOOK_AROUND">Space Out</woz-button>
                                 </div>
                             </div>
                             <div layout horizontal>
