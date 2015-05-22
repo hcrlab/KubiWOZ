@@ -68,7 +68,7 @@
     };
 
     app.lessonStep = 0;
-    app.totalSteps = 13;
+    app.totalSteps = 14;
 
     app.prevLessonPart = function() {
         app.lessonStep -= 1;
@@ -77,6 +77,10 @@
     app.nextLessonPart = function() {
         app.lessonStep += 1;
     };
+
+  app.resetLesson = function() {
+    app.lessonStep = 0;
+  }
 
     // Listen for template bound event to know when bindings
     // have resolved and content has been stamped to the page

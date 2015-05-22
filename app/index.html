@@ -143,9 +143,9 @@
                                         <section>
                                             <h3>Lesson Introduction</h3>
                                             <woz-button emotion="LOOK_LEFT" say="This is your first lesson in French. In this lesson, you will learn a few new words.">Introduce lesson</woz-button>
-                                            <woz-button say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button>
-                                            <woz-button emotion="LOOK_RIGHT" say="Sometimes, they will be in English, and somethings they will be in French">Activity Intro</woz-button>
-                                            <woz-button emotion="THINK" say="Are you ready?">Activity Intro</woz-button>
+                                            <woz-button imgL="FRANCE" txtL="Example Card" say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button>
+                                            <woz-button imgR="FRANCE" txtR="Exemple de Carte" emotion="LOOK_RIGHT" say="Sometimes, they will be in English, and somethings they will be in French">Activity Intro</woz-button>
+                                            <woz-button action="LOWER_HANDS" emotion="THINK" say="Are you ready?">Activity Intro</woz-button>
                                         </section>
                                         <section>
                                             <h3>Show An Apple</h3>
@@ -279,6 +279,14 @@
                                                 Quiz Banana
                                             </woz-button>
                                         </section>
+                                      <section>
+                                        <h3>Lesson Complete</h3>
+                                        <woz-button emotion="SMILE" say="Good Job! That is the end of this lesson!">Lesson Done</woz-button>
+                                        <woz-button emotion="LOOK_LEFT" say="That was a lot of work.">Lots of Work</woz-button>
+                                        <woz-button say="I'm going to take a nap now.">Nap</woz-button>
+                                        <woz-button emotion="WINK" say="See you next time!">Bye</woz-button>
+                                        <woz-button action="SLEEP" emotion="SLEEP">Sleep</woz-button>
+                                      </section>
                                     </core-animated-pages>
                                 </div>
                                 <div layout vertical class="btnGroup">
@@ -295,6 +303,7 @@
                                   <woz-button action="RAISE_HANDS">Raise Hands</woz-button>
                                   <woz-button action="PAY_ATTENTION">Pay Attention</woz-button>
                                   <woz-button action="LOOK_AROUND">Space Out</woz-button>
+                                  <woz-button action="LOWER_HANDS" on-click="{{resetLesson}}">RESET</woz-button>
                                 </div>
                             </div>
                             <div layout horizontal>
