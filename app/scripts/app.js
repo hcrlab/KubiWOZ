@@ -67,6 +67,17 @@
         smile: 'SMILE'
     };
 
+    app.lessonStep = 0;
+    app.totalSteps = 12;
+
+    app.prevLessonPart = function() {
+        app.lessonStep -= 1;
+    };
+
+    app.nextLessonPart = function() {
+        app.lessonStep += 1;
+    };
+
     // Listen for template bound event to know when bindings
     // have resolved and content has been stamped to the page
     app.addEventListener('template-bound', function() {

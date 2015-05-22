@@ -40,26 +40,17 @@
 
             var that = this;
 
-            fb.on('child_added', function(snap) {
-              var child = snap.val();
-              that.data.ids.push(snap.V.path.o[0]);
-            }, function(error) {
-              console.log("Error getting device IDs!");
-            });
-
-            fb.on('child_changed', function(snap) {
-              var child = snap.val();
-              if(!child.connected) {
-                that.data.ids.remove(snap.V.path.o[0]);
-              } else {
-                that.data.ids.push(snap.V.path.o[0]);
+            fb.on('value', function(snap) {
+              var vals = snap.val();
+              console.log(vals);
+              that.data.ids = [];
+              for(var d in vals) {
+                if(vals.hasOwnProperty(d)) {
+                  if(vals[d].connected === true) {
+                    that.data.ids.push(d);
+                  }
+                }
               }
-            }, function(error) {
-              console.log("Error getting device IDs!");
-            });
-
-            fb.on('child_removed', function(snap) {
-              that.data.ids.remove(snap.V.path.o[0]);
             }, function(error) {
               console.log("Error getting device IDs!");
             });

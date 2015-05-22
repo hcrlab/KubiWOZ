@@ -1,13 +1,13 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="woz-button" attributes="emotion action lan say imgL txtL imgR txtR">
+<polymer-element name="woz-button" attributes="emotion action lan say imgL txtL imgR txtR clazz">
   <template>
     <link rel="stylesheet" href="../fb-button.css">
 
     <app-globals id="globals"></app-globals>
 
-    <paper-button raised class="colored" on-click="{{response}}"><content id="content"></content></paper-button>
+    <paper-button raised class="colored {{clazz}}" on-click="{{response}}"><content id="content"></content></paper-button>
   </template>
   <script>
     (function () {
@@ -23,6 +23,7 @@
         txtL: null,
         imgR: null,
         txtR: null,
+        clazz: "",
 
         ready: function() {
           var that = this;

@@ -16,9 +16,8 @@ paper-button.colored {
   color: #4b2e83;
 }
 
-paper-button[raised].colored {
-  background: #4b2e83;
-  color: #d9d9d9;
+paper-button.colored.good {
+  color: #4b2e83;
 }
 
 [drawer] {

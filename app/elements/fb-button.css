@@ -11,3 +11,21 @@ paper-button[raised].colored {
   background: #4b2e83;
   color: #d9d9d9;
 }
+
+paper-button.colored.good {
+  background: #5CAD5C;
+}
+
+paper-button.colored.bad {
+  color: #FF6666;
+}
+
+paper-button[raised].colored.good {
+  background: #5CAD5C;
+  color: #f9f9f9;
+}
+
+paper-button[raised].colored.bad {
+  background: #FF6666;
+  color: #000000;
+}
