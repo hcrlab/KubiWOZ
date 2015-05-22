@@ -132,6 +132,19 @@
                     <!-- Lesson 1 -->
                     <section>
                         <div>
+                            <core-animated-pages transitions="cross-fade-all" selected="{{lessonStep}}">
+                                <section>
+                                    <div layout vertical>
+                                        <div flex>
+
+                                        </div>
+                                        <div layout horizontal>
+                                            <div flex></div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </core-animated-pages>
                             <!-- Note the {{function}} syntax for connecting this button to a callback, see app.js -->
                             <woz-button say="Welcome to the first lesson in French. In this lesson, you will learn a few new words. Let us get started.">Introduce lesson</woz-button>
                             <woz-button say="I will start with showing you a few pictures and ask you to pick one">Activity Intro</woz-button> <br/>
@@ -153,20 +166,20 @@
                                          txtR="Une banane" imgR="BANANA">
                                 Select a boy
                             </woz-button>
-                            <quiz-button text="une pomme" image="apple">Quiz: une pomme</quiz-button>
-                            <practice-button textEN="a girl" textFR="une fille" image="girl">Practice a girl</practice-button> <br/>
+                            <quiz-button text="une pomme" image="APPLE">Quiz: une pomme</quiz-button>
+                            <practice-button textEN="a girl" textFR="une fille" image="GIRL">Practice a girl</practice-button> <br/>
 
                             <woz-button  say="Please tap on a picture of a banana"
                                          txtL="Une pomme" imgL="APPLE"
                                          txtR="Une banane" imgR="BANANA">
                                 Select a banana
                             </woz-button>
-                            <quiz-button text="une fille" image="girl">Quiz: une fille</quiz-button>
-                            <practice-button textEN="a boy" textFR="un garçon" image="boy">Practice a boy</practice-button> <br/>
+                            <quiz-button text="une fille" image="GIRL">Quiz: une fille</quiz-button>
+                            <practice-button textEN="a boy" textFR="un garçon" image="BOY">Practice a boy</practice-button> <br/>
 
-                            <practice-button textEN="a banana" textFR="une banane" image="banana">Practice a banana</practice-button>
-                            <quiz-button text="un garçon" image="boy">Quiz: un garçon</quiz-button>
-                            <quiz-button text="une banane" image="banana">Quiz: une banane</quiz-button> <br/>
+                            <practice-button textEN="a banana" textFR="une banane" image="BANANA">Practice a banana</practice-button>
+                            <quiz-button text="un garçon" image="BOY">Quiz: un garçon</quiz-button>
+                            <quiz-button text="une banane" image="BANANA">Quiz: une banane</quiz-button> <br/>
 
                             <woz-button emotion="SMILE" say="That is correct">Correct</woz-button>
                             <woz-button emotion="SMILE" say="Excellent">Excellent</woz-button>
